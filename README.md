@@ -1,9 +1,9 @@
 # PySpark SparkML anime recommender.
 
-NET ROLL! (Or something like that). An anime series recommender mockup using SparkML ALS.
-Contains some Cross Validation parameter testing to select best parameters for model. If you are interested in this, I recommended testing on a proper platform to prevent running into hardware limitations. 
-We are using Jikan API v3 https://jikan.moe/ as our data source.
-Find the reduced dataset in data. To download complete dataset refer to source.
+NET ROLL! (Or something like that). An anime series recommender mockup using SparkML ALS.<br>
+Contains some Cross Validation parameter testing to select best parameters for model. If you are interested in this, I recommended testing on a proper platform to prevent running into hardware limitations.<br>
+We are using Jikan API v3 https://jikan.moe/ as our data source.<br>
+Find the reduced dataset in data. To download complete dataset refer to source.<br>
 
 ## Usage
 ### Jikan
@@ -45,7 +45,7 @@ Start the app.
 ```
 
 ### Run it with docker-compose
-You can run this too on docker and there is no more additional setup.
+You can run this too on docker and there is no more additional setup.<br>
 (No HDFS docker setup, SparkSession running on local).
 
 ```bash
@@ -60,6 +60,6 @@ For datasets and series queries:
 JIKAN:
 https://jikan.moe/ 
 
-Download .csv's from here:
-    - Small : http://www.exemplarius.com/rating_complete_small.csv
+Download .csv's from here: <br>
+    - Small : http://www.exemplarius.com/rating_complete_small.csv <br>
     - Full  : http://www.exemplarius.com/rating_complete.csv
