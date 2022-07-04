@@ -1,0 +1,4 @@
+.venv
+*__pycache__
+data/rating_complete.csv
+data/rating_complete_small.csv

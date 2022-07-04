@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metas tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.1/dist/flickity.css">
+        <link rel="stylesheet" href="static/styles/style.css">
+
+        <!-- Scripts -->
+        <script src="https://unpkg.com/flickity@2.2.1/dist/flickity.pkgd.min.js"></script>
+        
+        <title>AnimeVLF</title> 
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav id="navb" class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent">
+            <a class="navbar-brand" href="index.html"><b style="color: #008cff; margin-left:1rem;">NET ROLL</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link disabled" href="#">          </a>
+                    <a class="nav-item nav-link" href="#viendo">Series Para Ti</a>
+                    <a class="nav-item nav-link" href="#recomendado">Películas Para Ti</a>
+                    <a class="nav-item nav-link" href="#popular">Lo Más Visto</a>
+                    <a class="nav-item nav-link" href="#again">Ver Otra Vez</a>
+                </div>
+            </div>
+        </nav>
+
+        <!--Content-->
+        <header id="viendo">
+            <div class="info-container">
+                <h3>Películas Para Ti</h3>
+                <p id="movie-synopsis" style="margin-top: -10rem; width: 50vh;" class="desc-text"></p>
+            </div>
+            
+            <video disablePictureInPicture id="video1" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
+                <source src="{{ movies[0]['video_source'] }}" type="video/mp4">
+            </video>
+            <div id="carousel1" class="carousel js-flickity" data-flickity-options='{ "autoPlay": 9500, "pauseAutoPlayOnHover": false, "cellAlign": "left" }'>
+                {% for movie in movies %}
+                    {% if movie['pictures'][0] %}
+                        <img class="carousel-cell" src="{{movie['pictures'][0]['large']}}" video-src="{{ movie['video_source'] }}">
+                    {% else %}
+                        <img class="carousel-cell" src="" video-src="{{ movies[0]['video_source'] }}">
+                    {% endif %} 
+                {% endfor %}     
+            </div>
+        </header>
+
+        <header id="recomendado">
+            <div class="info-container">
+                <h3>Series Para Ti</h3>
+                <p id="serie-synopsis" style="margin-top: -10rem; width: 50vh;" class="desc-text"></p>
+            </div>
+            
+            <video disablePictureInPicture id="video2" poster="video-placehold.png" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="{{ series[0]['video_source'] }}" type="video/mp4">
+            </video>
+            <div id="carousel2" class="carousel js-flickity" data-flickity-options='{ "autoPlay": 9500, "wrapAround": true, "pauseAutoPlayOnHover": false }'>
+                {% for serie in series %}
+                    {% if serie['pictures'][0] %}
+                        <img class="carousel-cell" src="{{serie['pictures'][0]['large']}}" video-src="{{ serie['video_source'] }}">
+                    {% else %}
+                        <img class="carousel-cell" src="" video-src="{{ series[0]['video_source'] }}">
+                    {% endif %} 
+                {% endfor %}     
+            </div>
+        </header>
+
+        <footer>
+            <div class="container"><div class="row">
+                <section class="col-xl-5">
+                    <div>
+                        <a class="navbar-brand" href="index.html"><b style="color: #008cff;">NETROLL</b></a>
+                        <p>Esto es un texto de relleno para el footer para que el copyright no me quede pegado al logo y pienso que va a quedar genial. Y un poco más de texto por favor. Gracias. Perfecto.</p>
+                        <p>©  2022 NetRoll. All Rights Reserved.</p>
+                    </div>
+                </section>
+
+                <section class="col-md-4">
+                    <h5>Contacto</h5>
+                    <dl>
+                        <dt>Dirección:</dt>
+                        <dd><a href="https://www.google.com/maps/place/Mulah,+Maldives/@2.9464588,73.5796558,16z/data=!3m1!4b1!4m5!3m4!1s0x3b387db8bde51311:0x5101633cf14e8bc9!8m2!3d2.9440625!4d73.5873853">Una dirección en un lugar</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>e-Mail:</dt>
+                        <dd><a href="mailto:#">roachlokesp@gmail.com</a></dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Asistencia:</dt>
+                        <dd><a href="#support">https://support.netfl.ex</a> <span>
+                        </dd>
+                    </dl>
+                </section>
+
+                <section class="col-xl-3">
+                    <h5>Links</h5>
+                    <ul class="list-lash">
+                        <li><a href="#popular">About</a></li>
+                        <li><a href="#popular">Proyectos</a></li>
+                        <li><a href="#popular">Blog</a></li>
+                        <li><a href="#popular">Contacto</a></li>
+                        <li><a href="#popular">Precios</a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </footer>
+    </body>
+    
+    <!--Bootstrap scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    
+    
+    <script>
+        movie_trailers = [
+            {% for movie in movies %}
+                {% if movie['video_source'] %}
+                    "{{ movie['video_source'] }}"
+                {% else %}
+                    "{{ movies[0]['video_source'] }}"
+                {% endif %} 
+                ,
+            {% endfor %}     
+        ];
+
+        movie_context = [
+            {% for movie in movies %}
+                {% if movie['title'] %}
+                    `<p style="font-size:2rem;">{{ movie['title'] }}</p><p style="margin-top: 0rem;">{{movie['synopsis']}}</p>`
+                {% else %}
+                    `<p style="font-size:2rem;">{{ movies[0]['title'] }}</p><p style="margin-top: 0rem;">{{movies[0]['synopsis']}}</p>`
+                {% endif %} 
+                ,
+            {% endfor %}     
+        ];
+
+        serie_trailers = [
+            {% for serie in series %}
+                {% if serie['video_source'] %}
+                    "{{ serie['video_source'] }}"
+                {% else %}
+                    "{{ series[0]['video_source'] }}"
+                {% endif %} 
+                ,
+            {% endfor %}    
+        ];
+
+        serie_context = [
+            {% for serie in series %}
+                {% if serie['title'] %}
+                    `<p style="font-size:2rem;">{{ serie['title'] }}</p><p style="margin-top: 0rem;">{{serie['synopsis']}}</p>`
+                {% else %}
+                    `<p style="font-size:2rem;">{{ series[0]['title'] }}</p><p style="margin-top: 0rem;">{{series[0]['synopsis']}}</p>`
+                {% endif %} 
+                ,
+            {% endfor %}     
+        ];
+        
+    </script>
+
+    <script src="static/scripts/app.js"></script>
+</html>
+

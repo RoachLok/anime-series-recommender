@@ -1,0 +1,101 @@
+html,
+body {
+  height: 97vh;
+  background-color: #212121;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #212121;
+  font-family: "Roboto",sans-serif;
+  color: #b9b9b9;
+
+  background: linear-gradient(-45deg, #212121, #152c39, #0c1519, #153b50);
+	background-size: 400% 400%;
+	animation: gradient 35s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+    .form-box-width {
+      min-width: 85vw;
+    }
+}
+  
+/* Large screens */
+@media only screen and (min-width: 600px) {
+    .form-box-width {
+      min-width: 22vw;
+    }
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+  font-family: "Roboto",sans-serif;
+  color: #b9b9b9;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-group {
+  margin-top: 2em;
+  
+}
+
+/* Deny WTForm labels. */
+label {
+  display: none;
+}
+
+/* Source: https://stackoverflow.com/questions/14525029/display-a-loading-message-while-a-time-consuming-function-is-executed-in-flask */
+div#loading {
+  width: 12rem; 
+  height: 12rem;
+  display: none;
+  /*cursor: wait;*/
+}

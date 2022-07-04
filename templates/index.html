@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+        <link rel="icon" href="/static/img/logo.jpg">
+        <title>Very real login</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+    </head>
+<body>
+    <style>
+        * {
+            list-style-type: disc !important;
+            padding-left:1em !important;
+            margin-left:1em;
+        }
+    </style>
+
+<h1>Recommendations for user ID: {{movies[0]['user']}}</h1>
+<hr>
+<hr>
+
+
+
+<!-- Movie: ITEM, TYPE, predic-->
+<h2>MOVIES</h2>
+<hr>
+{% for movie in movies %}
+    <h3>ITEM_ID: {{movie['item']}}</h3>
+    <li>
+        TITLE: {{movie['title']}}
+    </li>
+    <li>
+        TYPE: {{movie['Type']}}
+    </li>
+    <li>
+        Predic: {{movie['predic']}}
+    </li>
+    <li>
+        Nº Episodes: {{movie['episodes']}}
+    </li>
+    <li>
+        Synopsis: {{movie['synopsis']}}
+    </li>
+    {% if movie['pictures'][0] %}
+        <img src="{{movie['pictures'][0]['large']}}">
+    {% else %}
+        <h3>-- NO IMAGE --</h3>
+    {% endif %}
+    {% if movie['embeded'] %}
+        <li>
+            YT embeded url: {{movie['embeded']}}
+        </li>
+    {% else %}
+        <li>
+            YT embeded url: NONE
+        </li>
+    {% endif %}
+    {% if movie['video_source'] %}
+        <li>
+            Video Source (YT no audio source): {{movie['video_source']}}
+        </li>
+    {% else %}
+        <li>
+            Video Source (YT no audio source): NONE
+        </li>
+    {% endif %}
+<hr>
+<br>
+{%endfor%}
+
+<br><hr><hr><hr><br>
+
+<h2>SERIES</h2>
+<hr>
+{% for serie in series %}
+    <h3>ITEM_ID: {{serie['item']}}</h3>
+    <li>
+        TITLE: {{serie['title']}}
+    </li>
+    <li>
+        TYPE: {{serie['Type']}}
+    </li>
+    <li>
+        Predic: {{serie['predic']}}
+    </li>
+    <li>
+        Nº Episodes: {{serie['episodes']}}
+    </li>
+    <li>
+        Synopsis: {{serie['synopsis']}}
+    </li>
+    {% if serie['pictures'][0] %}
+        <img src="{{serie['pictures'][0]['large']}}">
+    {% else %}
+        <h3>-- NO IMAGE --</h3>
+    {% endif %}
+    {% if serie['embeded'] %}
+        <li>
+            YT embeded url: {{serie['embeded']}}
+        </li>
+    {% else %}
+        <li>
+            YT embeded url: NONE
+        </li>
+    {% endif %}
+    {% if serie['video_source'] %}
+        <li>
+            Video Source (YT no audio source): {{serie['video_source']}}
+        </li>
+    {% else %}
+        <li>
+            Video Source (YT no audio source): NONE
+        </li>
+    {% endif %}
+<hr>
+<br>
+{%endfor%}
+    </body>
+</html>
