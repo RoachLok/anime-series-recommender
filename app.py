@@ -36,8 +36,8 @@ run_id = randrange(1000,9999)
 users = {}
 recommender = Recommender()
 
-req_jikan = JikanRequest('http://192.168.1.16:8000/v3')
-req_ytube = YTRequest('bin/yt-dlp.exe')
+req_jikan = JikanRequest('http://AnimeRecommender-jikan_api:8000/v3')
+req_ytube = YTRequest('bin/yt-dlp')
 cataloguer = Cataloguer([req_jikan, req_ytube])
 
 # Training the model, for now we only train based on 1 dataset. 

@@ -6,13 +6,6 @@ We are using Jikan API v3 https://jikan.moe/ as our data source.<br>
 Find the reduced dataset in data. To download complete dataset refer to source.<br>
 
 ## Usage
-### Jikan
-A working URL for Jikan's v3 API is needed to run the cataloguer.
-You must set this url in app.py line 39:
-```py
-    req_jikan = JikanRequest('<URL>/v3')
-```
-I recommend setting up your own from: https://github.com/jikan-me/jikan-docker .
 
 ### Running the code
 Clone repo.
@@ -44,13 +37,42 @@ Start the app.
     python app.py
 ```
 
-### Run it with docker-compose
-You can run this too on docker and there is no more additional setup.<br>
-(No HDFS docker setup, SparkSession running on local).
+### Run it with Docker using docker-compose
+You can also run this on docker without additional setup.<br>
+(No Hadoop docker setup, SparkSession running on local).
 
 ```bash
     docker-compose up
 ```
+
+## Notes
+### Datasets
+<hr>
+Refer to sources, download your desired one an drop them in ./data .
+
+### Jikan
+<hr>
+A working URL for Jikan's v3 API is needed to run the cataloguer.
+You must set this url in app.py line 39:
+
+```py
+    req_jikan = JikanRequest('<URL>/v3')
+```
+I recommend setting up your own from: https://github.com/jikan-me/jikan-docker . Or using docker-compose.
+
+### yt-dlp
+<hr>
+A yt-dlp binary is used to query youtube for videos.
+
+Get your own from here: https://github.com/yt-dlp/yt-dlp .
+
+Depending on where you plan on running the code you may want to change the used binary.
+
+Change it in app.py line 40 for now.
+```py
+    req_ytube = YTRequest('bin/yt-dlp')
+```
+
 
 
 ## Sources

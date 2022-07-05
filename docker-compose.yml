@@ -2,23 +2,31 @@ version: "3.4"
 
 services:
   flask:
-    build:
+    build: 
       context: ./
+      dockerfile: docker/flask-pyspark/Dockerfile
+    container_name: AnimeRecommender-Flask_Spark
     ports:
-      - "5000:5000"
+      - "0.0.0.0:5000:5000"
+    volumes:
+      - .:/app
+    networks:
+      - default
 
   jikan-rest-api:
     build:
-      context: jikan-docker/v3/jikan
+      context: ./docker/jikan
       dockerfile: Dockerfile
+    container_name: AnimeRecommender-jikan_api
     depends_on:
       - jikan-redis
     ports:
-      - "8000:8000"
+      - "0.0.0.0:8000:8000"
     networks:
       - default
     restart: always
 
   jikan-redis:
+    container_name: AnimeRecommender-jikan_redis
     image: redis
     restart: always
