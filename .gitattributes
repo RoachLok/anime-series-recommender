@@ -1,0 +1,4 @@
+# https://github.com/github/linguist/blob/master/docs/overrides.md
+
+static/styles/app.css linguist-vendored
+static/scripts/alpine.js linguist-vendored
