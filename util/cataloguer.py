@@ -35,9 +35,10 @@ class JikanRequest(InfoRequester):
             ('title'  , 'episodes',
              'aired'  , 'duration', 
              'rating' , 'score'   , 
+             'title_japanese',
              'synopsis')        : lambda item : self.query_item(str(item['item'])) ,
 
-            ('pictures',)        : lambda item : self.query_img(str(item['item']))
+            ('pictures',)       : lambda item : self.query_img(str(item['item']))
         }
 
         return queries
