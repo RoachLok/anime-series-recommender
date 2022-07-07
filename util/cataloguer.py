@@ -32,11 +32,12 @@ class JikanRequest(InfoRequester):
         Returns callable queries for a single item query.
         """
         queries = {
-            ('title'  , 'episodes',
-             'aired'  , 'duration', 
-             'rating' , 'score'   , 
+            ('title' ,
              'title_japanese',
-             'synopsis')        : lambda item : self.query_item(str(item['item'])) ,
+             'episodes', 'aired' ,
+             'duration', 'rating',
+             'synopsis', 'score'  
+             )        : lambda item : self.query_item(str(item['item'])) ,
 
             ('pictures',)       : lambda item : self.query_img(str(item['item']))
         }
