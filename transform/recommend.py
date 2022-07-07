@@ -4,8 +4,8 @@ from pyspark.sql.types import Row
 from pyspark.sql.functions import when
 
 class Recommender:
-    def __init__(self, maxIter=5):
-        self.als = ALS(rank=10, seed=0)
+    def __init__(self, maxIter=10, rank=25, regParam=0.15):
+        self.als = ALS(rank=rank, seed=0, regParam=regParam, nonnegative=True, implicitPrefs=False, coldStartStrategy='drop')
         self.als.setMaxIter(maxIter)
         self.models = {}
 
